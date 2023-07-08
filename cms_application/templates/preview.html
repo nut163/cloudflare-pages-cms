@@ -1,0 +1,29 @@
+```html
+{% extends "base.html" %}
+
+{% block content %}
+<div id="preview">
+    <h1>Preview: {{ website.name }}</h1>
+    <div id="navbar">
+        {% for page in website.pages %}
+            <a href="#">{{ page.label }}</a>
+        {% endfor %}
+    </div>
+    {% for page in website.pages %}
+        <div class="page">
+            <h2>{{ page.label }}</h2>
+            {% for content in page.contents %}
+                {% if content.active and content.start_date <= now and (content.end_date is none or content.end_date > now) %}
+                    <div class="content">
+                        <h3>{{ content.title }}</h3>
+                        <div class="body-details">
+                            {{ content.body|safe }}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
+```

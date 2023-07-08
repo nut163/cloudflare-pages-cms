@@ -1,0 +1,33 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <nav id="navbar">
+        <a href="{{ url_for('home') }}">Home</a>
+        {% for page in pages %}
+            <a href="{{ url_for('page', page_id=page.id) }}">{{ page.label }}</a>
+        {% endfor %}
+    </nav>
+    <div id="content">
+        <h1>Home</h1>
+        {% for content in contents %}
+            {% if content.active and content.start_date <= now and (content.end_date is none or content.end_date > now) %}
+                <div class="content-piece">
+                    <h2>{{ content.title }}</h2>
+                    <div class="body-details">
+                        {{ content.body|safe }}
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
+```
