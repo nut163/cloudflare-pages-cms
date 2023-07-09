@@ -1,0 +1,58 @@
+/* main.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.navbar {
+    background: #333;
+    color: #ffffff;
+    padding: 15px 0;
+    overflow: auto;
+}
+
+.navbar a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 15px;
+}
+
+.navbar a:hover {
+    background: #ffffff;
+    color: #333;
+}
+
+.content {
+    padding: 20px;
+}
+
+.content h1, .content h2, .content h3 {
+    color: #333;
+}
+
+.content p {
+    line-height: 1.6em;
+}
+
+.preview {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.preview h1, .preview h2, .preview h3 {
+    color: #333;
+}
+
+.preview p {
+    line-height: 1.6em;
+}
